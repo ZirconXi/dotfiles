@@ -1,0 +1,67 @@
+# =========================================================== #
+# Helper Functions                                            #
+# =========================================================== #
+
+function os_is_macos() { [[ $OSTYPE = darwin* ]] }
+function os_is_linux() { [[ $OSTYPE = linux* ]] }
+function command_exists() { type -p "$1" >/dev/null 2>&1; }
+
+# =========================================================== #
+# User Configurations                                         #
+# =========================================================== #
+
+# XDG
+# =========================================================== #
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_BIN_HOME="${HOME}/.local/bin"
+export XDG_RUNTIME_DIR="${HOME}/.local/runtime"
+
+# Zsh
+# =========================================================== #
+
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+# Editor
+# =========================================================== #
+
+export VISUAL=vim
+export EDITOR=vim
+
+# Language
+# =========================================================== #
+
+if os_is_macos; then
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+else
+  export LANG=C.UTF-8
+  export LC_ALL=C.UTF-8
+fi
+
+# Aliases
+# =========================================================== #
+
+# List the PATH separated by new lines
+alias lpath='echo $PATH | tr ":" "\n"'
+
+# Operate directory
+alias md='mkdir -p'
+alias rd=rmdir
+
+# List directory contents
+alias ls='ls --color=auto'
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
+# Local
+# =========================================================== #
+
+if [[ -f "${HOME}/.zshrc.local" ]]; then
+  source "${HOME}/.zshrc.local"
+fi

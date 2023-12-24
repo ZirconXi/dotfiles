@@ -1,0 +1,46 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+    interactive = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red
+    new = green
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[apply]
+    whitespace = fix
+
+[init]
+    defaultBranch = main
+
+[help]
+    autocorrect = 1
+
+[pull]
+    rebase = true
+
+[push]
+    default = simple
+    followTags = true
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[user]
+    name = "Zircon Xi"
+    email = hey@zirconxi.com

@@ -1,0 +1,43 @@
+# =========================================================== #
+# Applications                                                #
+# =========================================================== #
+
+# Homebrew
+# =========================================================== #
+
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if command_exists brew; then
+  # https://docs.brew.sh/Manpage#environment
+  export HOMEBREW_AUTOREMOVE=1
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_AUTO_UPDATE=1
+
+  # coreutils
+  export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
+# Orbstack
+# =========================================================== #
+
+[[ -d "${HOME}/.orbstack/bin" ]] && export PATH="${HOME}/.orbstack/bin:${PATH}"
+
+# =========================================================== #
+# Zsh Configurations                                          #
+# =========================================================== #
+
+export PATH="${XDG_BIN_HOME}:${PATH}"
+
+# zsh options
+source ${ZDOTDIR}/config/options.zsh
+
+# zinit
+source ${ZDOTDIR}/config/zinit.zsh
+
+# tools
+source ${ZDOTDIR}/config/tools.zsh
+
+# zsh completions
+source ${ZDOTDIR}/config/completions.zsh
