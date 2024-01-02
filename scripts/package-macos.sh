@@ -50,7 +50,6 @@ done
 casks=(
   appcleaner              # Application uninstaller
   bartender               # Menu bar icon organizer
-  bitwarden               # Password manager
   firefox                 # Web browser
   fliqlo                  # Flip clock screensaver
   font-ubuntu-mono
